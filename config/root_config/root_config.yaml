@@ -1,0 +1,43 @@
+# APPLICATION CONFIGURATION
+application:
+  name: "base_project"
+  version: "0.1.0"
+  description: "Base project"
+
+
+# API CONFIGS
+api:
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
+  cors:
+    allow_origins: ["*"]
+    allow_credentials: true
+    allow_methods: ["*"]
+    allow_headers: ["*"]
+  docs:
+    url: "/docs"
+    title: "API Documentation"
+    description: "API Documentation"
+    version: "1.0.0"
+
+  scan_bmc: true
+
+# LOGGING CONFIGURATION
+logging:
+  level: "DEBUG" # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  handlers:
+    - console # console handler
+    - file # file handler
+  file_config:
+    path: logs/ # path to the logs folder
+    name: app.log # name of the log file
+    max_bytes: 10485760 # max size of the log file in bytes
+    backup_count: 5 # number of backup files
+  format: "[%(asctime)s] %(levelname)s %(name)s: %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S"
+  use_colors: true # use colors in the console
+
+# COMMANDER CONFIGURATION
+commander:
+  timeout: 300 # timeout for the command in seconds
